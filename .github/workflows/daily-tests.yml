@@ -1,0 +1,72 @@
+name: Playwright Daily Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  schedule:
+    # Every day at 13:00 UTC (09:00 Toronto/EDT, 08:00 EST)
+    - cron: "0 13 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Install Playwright browsers & OS deps
+        run: |
+          playwright install --with-deps
+
+      - name: Run tests (pytest creates HTML + Allure)
+        run: |
+          pytest
+        # keep going to upload reports even if tests fail
+        continue-on-error: true
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytest-html
+          path: test_cases/reports/report.html
+
+      - name: Upload Allure results (JSON)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: test_cases/reports/allure
+
+      - name: Upload screenshots/videos/traces
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifacts
+          path: |
+            test_cases/Screenshots
+            test_cases/videos
+            test_cases/reports/traces
+          if-no-files-found: ignore
