@@ -1,0 +1,4 @@
+category is visible: JSHandle@<h2>Category</h2>
+user in correct page
+category title is visible: Women - Dress Products
+user in correct page: https://automationexercise.com/category_products/3

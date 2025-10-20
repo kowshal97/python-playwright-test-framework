@@ -1,0 +1,10 @@
+homepage verified
+user is navigated to products page successfully
+Searched Products is visible
+Product 1: men tshirt
+Product 2: pure cotton v-neck t-shirt
+Product 3: green side placket detail t-shirt
+Product 4: premium polo t-shirts
+Product 5: pure cotton neon green tshirt
+Product 6: graphic design men t shirt - blue
+all the products related to search are visible

@@ -1,0 +1,13 @@
+homepage verified
+User is on the cart page
+Address detail: Your delivery address
+							Mr. Kowshik dhana
+							Amazon
+							florentine place, pickering
+							
+							Toronto Ontario
+								0123456
+							Canada
+							241947198241
+address detail found
+Verified account deleted

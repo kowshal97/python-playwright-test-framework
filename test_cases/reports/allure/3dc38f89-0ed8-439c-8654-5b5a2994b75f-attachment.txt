@@ -1,0 +1,7 @@
+homepage verified
+Get in Touch is visible
+Upload file is successful
+Alert text:,Press OK to proceed!
+visible True
+text Success! Your details have been submitted successfully.
+Success! Your details have been submitted successfully. is visible

@@ -1,0 +1,4 @@
+homepage verified
+login page verified
+signup page verified
+Email Address already exist! text verified

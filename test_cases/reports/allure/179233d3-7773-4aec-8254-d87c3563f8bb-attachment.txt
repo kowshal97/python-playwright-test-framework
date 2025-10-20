@@ -1,0 +1,23 @@
+homepage verified
+product True
+user is navigated to products page successfully
+product_list1 True
+User is landed to product detail page
+True
+Blue Top
+								Category: Women > Tops
+								
+								
+									Rs. 500
+									Quantity:
+									
+									
+									
+										
+										Add to cart
+									
+								
+								Availability: In Stock
+								Condition: New
+								Brand: Polo
+Product details is visible

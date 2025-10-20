@@ -1,0 +1,14 @@
+homepage verified
+item: 1
+name: Blue Top
+								Women > Tops
+quantity: 1
+price: Rs. 500
+total_price: Rs. 500
+details verified
+item: 1
+name: Men > Tshirts
+quantity: 1
+price: Rs. 400
+total_price: Rs. 400
+details verified

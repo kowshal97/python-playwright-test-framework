@@ -1,0 +1,4 @@
+homepage verified
+subscription text is visible
+Found text: You have been successfully subscribed!
+Success message text is visible

@@ -1,0 +1,3 @@
+user on right page
+review is visible
+Success banner: Thank you for your review.

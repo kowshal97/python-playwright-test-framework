@@ -1,0 +1,20 @@
+user on right page
+P tag content: Your product has been added to cart.
+P tag content: View Cart
+P tag content: Men Tshirt
+P tag content: Men Tshirt
+P tag content: Pure Cotton V-Neck T-Shirt
+P tag content: Pure Cotton V-Neck T-Shirt
+P tag content: Green Side Placket Detail T-Shirt
+P tag content: Green Side Placket Detail T-Shirt
+P tag content: Premium Polo T-Shirts
+P tag content: Premium Polo T-Shirts
+P tag content: Pure Cotton Neon Green Tshirt
+P tag content: Pure Cotton Neon Green Tshirt
+P tag content: GRAPHIC DESIGN MEN T SHIRT - BLUE
+P tag content: GRAPHIC DESIGN MEN T SHIRT - BLUE
+all products related to search is visible
+Green Side Placket Detail T-Shirt Pure Cotton Neon Green Tshirt
+products are visible
+Green Side Placket Detail T-Shirt Pure Cotton Neon Green Tshirt
+products are visible
