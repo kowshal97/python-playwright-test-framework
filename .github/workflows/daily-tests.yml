@@ -5,11 +5,12 @@ on:
     branches: [ main ]
   pull_request:
   schedule:
-    # Every day at 13:00 UTC (09:00 Toronto/EDT, 08:00 EST)
-    - cron: "0 13 * * *"
+    - cron: "0 13 * * *"  # 13:00 UTC daily (adjust if you want)
 
 permissions:
   contents: read
+  pages: write       # needed by deploy job
+  id-token: write    # needed by deploy job
 
 jobs:
   test:
@@ -40,11 +41,10 @@ jobs:
         run: |
           playwright install --with-deps
 
-      - name: Run tests (pytest creates HTML + Allure)
+      - name: Run tests (pytest produces HTML + Allure)
         run: |
           pytest
-        # keep going to upload reports even if tests fail
-        continue-on-error: true
+        continue-on-error: true  # still publish reports even if tests fail
 
       - name: Upload HTML report
         if: always()
@@ -70,3 +70,37 @@ jobs:
             test_cases/videos
             test_cases/reports/traces
           if-no-files-found: ignore
+
+  publish-allure:
+    needs: test
+    runs-on: ubuntu-latest
+    # these permissions are already set at workflow top; kept here for clarity
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download Allure results from previous job
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-results
+          path: ./allure-results
+
+      # Build Allure HTML (no Java install needed)
+      - name: Generate Allure report
+        uses: simple-elf/allure-report-action@v1.7
+        with:
+          allure_results: ./allure-results
+          allure_report: ./allure-report
+          keep_reports: 20
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./allure-report
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
