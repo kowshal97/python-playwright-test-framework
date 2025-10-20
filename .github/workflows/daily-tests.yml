@@ -1,16 +1,11 @@
-name: Playwright Daily Tests
+name: Daily Playwright Tests (HTML only)
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
   schedule:
-    - cron: "0 13 * * *"  # 13:00 UTC daily 
-
-permissions:
-  contents: read
-  pages: write       
-  id-token: write   
+    - cron: "0 13 * * *"     
+  workflow_dispatch:          
+  push:
+    branches: [ main ]         
 
 jobs:
   test:
@@ -32,73 +27,24 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      - name: Install deps
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Install Playwright browsers & OS deps
-        run: |
-          playwright install --with-deps
+        run: playwright install --with-deps
 
-      - name: Run tests (pytest produces HTML + Allure)
-        run: |
-          pytest
-        continue-on-error: true  
+    
+      - name: Run tests (produces HTML)
+        run: pytest
+        continue-on-error: true
 
+     
       - name: Upload HTML report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: pytest-html
+          name: pytest-html-report
           path: test_cases/reports/report.html
-
-      - name: Upload Allure results (JSON)
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results
-          path: test_cases/reports/allure
-
-      - name: Upload screenshots/videos/traces
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: artifacts
-          path: |
-            test_cases/Screenshots
-            test_cases/videos
-            test_cases/reports/traces
-          if-no-files-found: ignore
-
-  publish-allure:
-    needs: test
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Download Allure results from previous job
-        uses: actions/download-artifact@v4
-        with:
-          name: allure-results
-          path: ./allure-results
-
-      - name: Generate Allure report
-        uses: simple-elf/allure-report-action@v1.7
-        with:
-          allure_results: ./allure-results
-          allure_report: ./allure-report
-          keep_reports: 20
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./allure-report
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+          if-no-files-found: error
