@@ -56,3 +56,8 @@ python-playwright-test-framework/
 ```bash
 git clone https://github.com/kowshal97/python-playwright-test-framework.git
 cd python-playwright-test-framework
+
+### 2️⃣ Create & activate a virtual environment
+python -m venv .venv
+.\.venv\Scripts\activate       # Windows
+source .venv/bin/activate      # macOS/Linux
