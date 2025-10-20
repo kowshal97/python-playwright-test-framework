@@ -5,12 +5,12 @@ on:
     branches: [ main ]
   pull_request:
   schedule:
-    - cron: "0 13 * * *"  # 13:00 UTC daily (adjust if you want)
+    - cron: "0 13 * * *"  # 13:00 UTC daily 
 
 permissions:
   contents: read
-  pages: write       # needed by deploy job
-  id-token: write    # needed by deploy job
+  pages: write       
+  id-token: write   
 
 jobs:
   test:
@@ -44,7 +44,7 @@ jobs:
       - name: Run tests (pytest produces HTML + Allure)
         run: |
           pytest
-        continue-on-error: true  # still publish reports even if tests fail
+        continue-on-error: true  
 
       - name: Upload HTML report
         if: always()
@@ -74,7 +74,6 @@ jobs:
   publish-allure:
     needs: test
     runs-on: ubuntu-latest
-    # these permissions are already set at workflow top; kept here for clarity
     permissions:
       contents: write
       pages: write
@@ -89,7 +88,6 @@ jobs:
           name: allure-results
           path: ./allure-results
 
-      # Build Allure HTML (no Java install needed)
       - name: Generate Allure report
         uses: simple-elf/allure-report-action@v1.7
         with:
