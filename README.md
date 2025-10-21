@@ -1,9 +1,7 @@
 # 🎭 Python Playwright Test Automation Framework
 
-[![Build Tests](https://github.com/kowshal97/python-playwright-test-framework/actions/workflows/daily-html-report.yml/badge.svg)](https://github.com/kowshal97/python-playwright-test-framework/actions/workflows/daily-html-report.yml)
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue)
 ![Playwright](https://img.shields.io/badge/Playwright-1.55+-green)
-![License](https://img.shields.io/badge/license-MIT-lightgrey)
 ![Status](https://img.shields.io/badge/status-Automated%20Daily%20Run-brightgreen)
 
 A **scalable, cross-browser test automation framework** built using **Playwright + Pytest**, designed for **UI testing**, **data-driven execution**, and **CI/CD integration** with **GitHub Actions**.  
