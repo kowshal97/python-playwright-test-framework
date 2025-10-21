@@ -26,26 +26,22 @@ This framework includes structured test modules, reusable fixtures, screenshots,
 
 ## 🧩 Project Structure
 
-python-playwright-test-framework/
-├── .github/
-│   └── workflows/
-│       └── daily-html-report.yml        # Automated daily test workflow
-├── test_cases/                          # Organized UI test cases
-│   ├── test_case1.py
-│   ├── test_case2.py
-│   ├── ...
-│   ├── reports/
-│   │   ├── report.html                  # Pytest HTML report (pytest-html)
-│   │   ├── allure-results/              # Raw Allure JSON from last run
-│   │   └── allure-report/               # (optional) Static Allure site if generated
-│   ├── Screenshots/                     # Screenshots captured on failure
-│   └── videos/                          # Video recordings of failed runs
-├── practice_scripts/                    # Experimental Playwright scripts
-├── assets/                              # Static files (e.g. PDFs for upload)
-├── conftest.py                          # Shared fixtures & hooks
-├── pytest.ini                           # Global pytest configuration
-├── requirements.txt                     # Project dependencies
-└── README.md
+**Main Folders & Files:**
+
+- `.github/workflows/daily-html-report.yml` → Automated daily test workflow  
+- `test_cases/` → Organized UI test cases  
+- `test_cases/reports/report.html` → Pytest HTML report  
+- `allure-results/` → Raw Allure JSON results from last run  
+- `allure-report/` → (Optional) Static Allure dashboard  
+- `test_cases/Screenshots/` → Screenshots captured on failure  
+- `test_cases/videos/` → Video recordings of failed test runs  
+- `practice_scripts/` → Experimental Playwright practice scripts  
+- `assets/` → Static files (e.g., PDFs for upload)  
+- `conftest.py` → Shared fixtures and hooks  
+- `pytest.ini` → Global Pytest configuration  
+- `requirements.txt` → Project dependencies  
+- `README.md` → Project documentation
+
 
 
 ---
