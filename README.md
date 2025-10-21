@@ -106,8 +106,7 @@ These assets can be attached to bug reports or shared with your QA team for fast
 ## 👨‍💻 Author
 
 **Kowshal Sugunarajah**  
-🎓 Postgraduate – Cloud Computing, Durham College  
-💼 Former QA Associate – Amazon  
+🎓 Postgraduate – Cloud Computing, Durham College    
 🌐 [LinkedIn](https://linkedin.com/in/kowshal97)  
 📂 [GitHub Projects](https://github.com/kowshal97)
 
