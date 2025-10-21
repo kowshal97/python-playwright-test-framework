@@ -50,14 +50,79 @@ python-playwright-test-framework/
 
 ---
 
+
+---
+
 ## ⚙️ Installation & Setup
+1️⃣ **Clone the repository** to your local system  
+2️⃣ **Create and activate** a virtual environment  
+3️⃣ **Install dependencies** from `requirements.txt`  
+4️⃣ **Install Playwright browsers** to enable Chromium, Firefox, and WebKit testing  
 
-### 1️⃣ Clone the repository
-```bash
-git clone https://github.com/kowshal97/python-playwright-test-framework.git
-cd python-playwright-test-framework
+---
 
-### 2️⃣ Create & activate a virtual environment
-python -m venv .venv
-.\.venv\Scripts\activate       # Windows
-source .venv/bin/activate      # macOS/Linux
+## 🧪 Running Tests
+You can execute the tests using **Pytest** and view the results in the generated **HTML report**.  
+All screenshots, videos, and logs are saved automatically for failed test cases.  
+
+---
+
+## ☁️ GitHub Actions Integration
+📄 Workflow File: `.github/workflows/daily-html-report.yml`  
+🔁 Automatically triggers **daily at 13:00 UTC (8 AM EST)**  
+📊 Generates and uploads the **HTML report** on each run  
+🔗 View all runs under the **Actions** tab on your repository  
+
+After each run:
+- Go to **Actions → Latest Run → Artifacts**  
+- Download the **pytest HTML report**  
+- Open the file locally to view detailed test results  
+
+---
+
+## 🧠 Tech Stack
+
+| Category | Tool |
+|-----------|------|
+| Programming Language | Python |
+| Test Framework | Pytest |
+| Automation Engine | Playwright |
+| Reporting | Pytest-HTML / Allure |
+| CI/CD | GitHub Actions |
+| Parallel Execution | Pytest-xdist |
+
+---
+
+## 📸 Screenshots & Videos
+All failed tests automatically generate:
+- **Screenshots** for visual debugging  
+- **Videos** for step-by-step analysis  
+- **Trace logs** for identifying root causes  
+
+These assets can be attached to bug reports or shared with your QA team for faster issue resolution.
+
+---
+
+## 👨‍💻 Author
+
+**Kowshal Sugunarajah**  
+🎓 Postgraduate – Cloud Computing, Durham College  
+💼 Former QA Associate – Amazon  
+🌐 [LinkedIn](https://linkedin.com/in/kowshal97)  
+📂 [GitHub Projects](https://github.com/kowshal97)
+
+---
+
+## 🏁 Summary
+This project showcases:
+- ✅ End-to-end **UI automation** with Playwright + Pytest  
+- ✅ **CI/CD integration** using GitHub Actions  
+- ✅ **Daily test runs** with automated HTML reports  
+- ✅ A **scalable and modular** framework structure  
+
+Use it as a **launchpad for your own automation projects** or integrate it into enterprise CI pipelines.
+
+---
+
+> 💡 *“Automation isn’t just about speed — it’s about building confidence in every release.”*
+
